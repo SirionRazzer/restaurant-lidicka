@@ -32,6 +32,10 @@
 
     const sites = [
       {
+        name: 'Home',
+        link: 'extra.html',
+      },
+      {
         name: 'Bastardo',
         link: 'https://www.arabika.cz/dorucovani-jidla-a-zbozi/?filter3=brno&search=bistro-bastardo-stefanikova&filter2=restaurant',
       },
@@ -84,14 +88,6 @@
         link: 'https://www.menicka.cz/api/iframe/?id=6691',
       },
       {
-        name: 'Gopál',
-        link: 'https://www.gopal.menu/restaurant',
-      },
-      {
-        name: 'U Semináru',
-        link: 'http://www.useminaru.cz/menu.php',
-      },
-      {
         name: 'Lužánka',
         link: 'https://luzankabrno.cz/poledni-menu/',
       },
@@ -99,13 +95,17 @@
         name: 'Teátr',
         link: 'https://www.restaurant-teatr.cz/denni-menu.php',
       },
+      {
+        name: 'Nepál India Thali',
+        link: 'https://www.indiathali.cz/',
+      },      
     ];
 
     $("body").ready(function () {
       sites.forEach((x, i) => {
         $("#menu-buttons").append('<input id="btn_' + i + '" type="button" class="btn btn-outline-light m-2 mt-4" value="' + x.name + '" onClick="setSite(\'' + i + '\')" />');
       });
-      setSite(Math.floor(Math.random() * sites.length));
+      setSite(0);
     });
 
     function setSite(i) {
