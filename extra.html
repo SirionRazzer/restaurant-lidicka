@@ -14,10 +14,36 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg-dark: #1a0d0d;
+      --bg-card: #2b1515;
+      --text-primary: #f8f1d4;
+      --text-secondary: #f4d28a;
+      --accent: #e80d1d;
+      --primary: #ffcc00;
+      --success: #10b981;
+      --link-border: rgba(255, 204, 0, 0.3);
+      --link-hover-bg: rgba(255, 204, 0, 0.1);
+      --note-bg: rgba(255, 204, 0, 0.1);
+      --note-border: rgba(255, 204, 0, 0.3);
+    }
+
+    [data-theme="light"] {
+      --bg-dark: #fff9ee;
+      --bg-card: #fff6d1;
+      --text-primary: #3c1d00;
+      --text-secondary: #a86900;
+      --accent: #bb0f12;
+      --link-border: rgba(0, 0, 0, 0.12);
+      --link-hover-bg: rgba(255, 204, 0, 0.25);
+      --note-bg: rgba(232, 13, 29, 0.08);
+      --note-border: rgba(232, 13, 29, 0.3);
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1a0d0d 0%, #2b1515 90%);
-      color: #fecf3f;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+      color: var(--text-primary);
       min-height: 100vh;
       padding: 24px;
     }
@@ -31,14 +57,14 @@
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 8px;
-      background: linear-gradient(135deg, #ffcc00 0%, #e80d1d 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .subtitle {
-      color: #f4d28a;
+      color: var(--text-secondary);
       font-size: 14px;
       margin-bottom: 24px;
     }
@@ -56,24 +82,24 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 204, 0, 0.35);
+      background: var(--bg-card);
+      border: 1px solid var(--link-border);
       border-radius: 10px;
-      color: #ffffff;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 500;
       transition: all 0.2s ease;
     }
 
     .restaurant-list li a:hover {
-      background: rgba(255, 204, 0, 0.15);
-      border-color: #e80d1d;
+      background: var(--link-hover-bg);
+      border-color: var(--accent);
       transform: translateX(4px);
     }
 
     .restaurant-list li a::after {
       content: '↗';
-      color: #e80d1d;
+      color: var(--accent);
       font-size: 16px;
     }
 
@@ -82,27 +108,27 @@
       align-items: center;
       gap: 8px;
       padding: 12px 20px;
-      background: rgba(232, 13, 29, 0.06);
-      border: 1px solid #e80d1d;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--success);
       border-radius: 8px;
-      color: #e80d1d;
+      color: var(--success);
       font-weight: 500;
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .map-link:hover {
-      background: rgba(232, 13, 29, 0.12);
+      background: rgba(16, 185, 129, 0.2);
     }
 
     .note {
       margin-top: 20px;
       padding: 12px 16px;
-      background: rgba(255, 204, 0, 0.15);
-      border: 1px solid rgba(255, 204, 0, 0.5);
+      background: var(--note-bg);
+      border: 1px solid var(--note-border);
       border-radius: 8px;
       font-size: 13px;
-      color: #4a2700;
+      color: var(--text-secondary);
     }
   </style>
 </head>
@@ -132,5 +158,29 @@
       <strong>Tip:</strong> Use the main navigation above to quickly switch between restaurant menus that support iframe viewing.
     </div>
   </div>
+
+  <script>
+    // Sync theme with parent window or localStorage
+    const THEME_KEY = 'restaurant-theme';
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    function loadPreferredTheme() {
+      const stored = localStorage.getItem(THEME_KEY);
+      return stored ? stored : (prefersDarkScheme.matches ? 'dark' : 'light');
+    }
+    
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    
+    applyTheme(loadPreferredTheme());
+    
+    // Listen for system theme changes
+    prefersDarkScheme.addEventListener('change', (e) => {
+      if (!localStorage.getItem(THEME_KEY)) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  </script>
 </body>
 </html>

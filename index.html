@@ -49,6 +49,13 @@
       --overlay-bg: rgba(0, 0, 0, 0.5);
       --home-bg: linear-gradient(160deg, #1a0d0d 0%, #2b1515 70%);
       --welcome-bg: linear-gradient(135deg, rgba(255, 204, 0, 0.25), rgba(232, 13, 29, 0.15));
+      --h1-gradient: linear-gradient(135deg, #ffcc00 0%, #e80d1d 100%);
+      --spinner-track: rgba(255, 255, 255, 0.1);
+      --dropdown-border: rgba(255, 255, 255, 0.1);
+      --badge-bg: rgba(255, 204, 0, 0.3);
+      --badge-text: #fff8dc;
+      --external-badge-bg: rgba(249, 115, 22, 0.3);
+      --external-badge-text: #ffb380;
     }
 
     body {
@@ -214,7 +221,7 @@
       left: 0;
       right: 0;
       background: var(--bg-card);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--dropdown-border);
       padding: 16px;
       max-height: calc(100vh - 60px);
       overflow-y: auto;
@@ -316,7 +323,7 @@
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffcc00 0%, #e80d1d 100%);
+      background: var(--h1-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -382,15 +389,16 @@
       display: inline-block;
       margin-top: 8px;
       font-size: 11px;
-      padding: 3px 8px;
+      font-weight: 600;
+      padding: 4px 10px;
       border-radius: 12px;
-      background: rgba(79, 70, 229, 0.2);
-      color: var(--primary);
+      background: var(--badge-bg);
+      color: var(--badge-text);
     }
 
     .restaurant-card.external .badge {
-      background: rgba(249, 115, 22, 0.2);
-      color: var(--external-badge);
+      background: var(--external-badge-bg);
+      color: var(--external-badge-text);
     }
 
     .map-link {
@@ -437,6 +445,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      color: var(--text-primary);
+      background: var(--bg-dark);
+      padding: 24px;
+      border-radius: 12px;
     }
 
     .loading.show {
@@ -446,7 +458,7 @@
     .spinner {
       width: 40px;
       height: 40px;
-      border: 3px solid rgba(255, 255, 255, 0.1);
+      border: 3px solid var(--spinner-track);
       border-top-color: var(--primary);
       border-radius: 50%;
       animation: spin 1s linear infinite;
@@ -508,7 +520,7 @@
       display: block;
     }
 
-    [data-theme=\"light\"] {
+    [data-theme="light"] {
       --bg-dark: #fff9ee;
       --bg-card: #fff6d1;
       --text-primary: #3c1d00;
@@ -529,6 +541,13 @@
       --overlay-bg: rgba(0, 0, 0, 0.2);
       --home-bg: linear-gradient(160deg, #fff9ee 0%, #ffe4aa 70%);
       --welcome-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 204, 0, 0.4));
+      --h1-gradient: linear-gradient(135deg, #e80d1d 0%, #b8860b 100%);
+      --spinner-track: rgba(0, 0, 0, 0.1);
+      --dropdown-border: rgba(0, 0, 0, 0.1);
+      --badge-bg: rgba(232, 13, 29, 0.15);
+      --badge-text: #b8860b;
+      --external-badge-bg: rgba(232, 13, 29, 0.2);
+      --external-badge-text: #c43c00;
     }
   </style>
 </head>
