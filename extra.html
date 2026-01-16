@@ -1,37 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>About</title>
+  <title>External Restaurant Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a0d0d 0%, #2b1515 90%);
+      color: #fecf3f;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffcc00 0%, #e80d1d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: #f4d28a;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .restaurant-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .restaurant-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 204, 0, 0.35);
+      border-radius: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .restaurant-list li a:hover {
+      background: rgba(255, 204, 0, 0.15);
+      border-color: #e80d1d;
+      transform: translateX(4px);
+    }
+
+    .restaurant-list li a::after {
+      content: '↗';
+      color: #e80d1d;
+      font-size: 16px;
+    }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: rgba(232, 13, 29, 0.06);
+      border: 1px solid #e80d1d;
+      border-radius: 8px;
+      color: #e80d1d;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .map-link:hover {
+      background: rgba(232, 13, 29, 0.12);
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: rgba(255, 204, 0, 0.15);
+      border: 1px solid rgba(255, 204, 0, 0.5);
+      border-radius: 8px;
+      font-size: 13px;
+      color: #4a2700;
+    }
+  </style>
 </head>
 <body>
-  <h1>Home</h1>
-  <p>Restaurants that are accessible only via URL:</p>
-  <ul>
-    <li>
-        <a href="https://www.gopal.menu/restaurant" target="_blank" rel="noopener noreferrer">Gopál</a>
-    </li>
-    <li>
-        <a href="https://www.gardenfoodconcept.cz/poledni-menu/" target="_blank" rel="noopener noreferrer">Garden Food Concept</a>
-    </li>
+  <div class="container">
+    <h1>🔗 External Restaurant Links</h1>
+    <p class="subtitle">These restaurants open in a new tab (cannot be displayed in iframe)</p>
     
-    <li>
-      <a href="https://rebrno.cz/launchmenuCZ/White%20Black%20Simple%20Restaurant%20Menu%20(12).pdf-1724387239051.pdf" target="_blank" rel="noopener noreferrer">Re Brno</a>
-    </li>
-    <li>
-        <a href="https://www.sangiacomo.cz/en/menu" target="_blank" rel="noopener noreferrer">San Giacomo</a>
-    </li>
-    <li>
-        <a href="http://www.useminaru.cz/menu.php" target="_blank" rel="noopener noreferrer">U Semináru</a>
-    </li>
-    <li>
-        <a href="https://www.indiathali.cz/" target="_blank" rel="noopener noreferrer">Nepál India Thali</a>
-    </li>
-    <li>
-        <a href="https://www.taorestaurant.cz/tydenni_menu/nabidka/" target="_blank" rel="noopener noreferrer">Tao</a>
-    </li>
-  </ul>
-  <a href="https://www.google.com/maps/search/Restaurants/@49.2006673,16.6053123,16.81z/data=!4m2!2m1!6e5?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Map Restaurants</a>
-  <img src="lidicka-map-restaurants.png" alt="Lidicka Map Restaurants" style="max-width:100%;height:auto;">
+    <ul class="restaurant-list">
+      <li><a href="https://www.gopal.menu/restaurant" target="_blank" rel="noopener noreferrer">Gopál</a></li>
+      <li><a href="https://www.gardenfoodconcept.cz/poledni-menu/" target="_blank" rel="noopener noreferrer">Garden Food Concept</a></li>
+      <li><a href="https://rebrno.cz/launchmenuCZ/White%20Black%20Simple%20Restaurant%20Menu%20(12).pdf-1724387239051.pdf" target="_blank" rel="noopener noreferrer">Re Brno</a></li>
+      <li><a href="https://www.sangiacomo.cz/en/menu" target="_blank" rel="noopener noreferrer">San Giacomo</a></li>
+      <li><a href="http://www.useminaru.cz/menu.php" target="_blank" rel="noopener noreferrer">U Semináru</a></li>
+      <li><a href="https://www.indiathali.cz/" target="_blank" rel="noopener noreferrer">Nepál India Thali</a></li>
+      <li><a href="https://www.taorestaurant.cz/tydenni_menu/nabidka/" target="_blank" rel="noopener noreferrer">Tao</a></li>
+    </ul>
+    
+    <a href="https://www.google.com/maps/search/Restaurants/@49.2006673,16.6053123,16.81z/data=!4m2!2m1!6e5?entry=ttu" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="map-link">
+      📍 View on Google Maps
+    </a>
+
+    <div class="note">
+      <strong>Tip:</strong> Use the main navigation above to quickly switch between restaurant menus that support iframe viewing.
+    </div>
+  </div>
 </body>
 </html>
